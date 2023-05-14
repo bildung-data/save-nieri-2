@@ -63,6 +63,11 @@ $(document).ready(function() {
 
     // keypress handler to jump
     $(document).on('keydown', handleKeyPress);
+    
+    
+    // add an event listener to the jump button to handle the jump action - Guro!
+    $('#jumpButton').on('click', handleKeyPress);
+
 
     // send a new brick from the left or right of the screen and move the stack down
     function sendBrick() {
