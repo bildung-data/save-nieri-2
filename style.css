@@ -82,7 +82,7 @@ button.btn:active {
 }
 
 #jumpContainer #jumpButton {
-    position: absolute;
+    position: relative;
     bottom: 20px;
     margin-top: 80px;
     margin: auto;
