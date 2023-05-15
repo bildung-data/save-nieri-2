@@ -49,6 +49,17 @@ button.btn:active {
     overflow: hidden;
 }
 
+#jumpContainer {
+    height: 50px;
+    width: 300px;
+    border: 1px solid #000;
+    margin: 20px auto;
+    background: #CDEDF6;
+    position: relative;
+    padding: 10px;
+    overflow: hidden;
+}
+
 #gameContainer #score {
     text-align: right;
     float: right;
@@ -69,6 +80,19 @@ button.btn:active {
     width: 50%;
     cursor: pointer;
 }
+
+#jumpContainer #jumpButton {
+    position: absolute;
+    bottom: 20px;
+    margin-top: 80px;
+    margin: auto;
+    display: block;
+    left: 25%;
+    right: 25%;
+    width: 50%;
+    cursor: pointer;
+}
+
 
 .brickContainer {
     position: relative;
