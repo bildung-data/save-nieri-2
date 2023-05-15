@@ -17,7 +17,11 @@ $(document).ready(function() {
             return;
           }
 
-        $(document).on('click', '#startButton2', function() {
+        $('#startButton2').on('click', hidepopupContainer);
+
+        function hidepopupContainer() {
+            
+        //$(document).on('click', '#startButton2', function() {
           var name = $('#nameInput').val();
 
           // Store the entered name in cookies or local storage
@@ -28,7 +32,7 @@ $(document).ready(function() {
 
         // Set to a value other than null
             popupShownBefore = true; 
-          });
+          };
 
     // start (or restart) the game
     function startGame() {
