@@ -53,6 +53,7 @@ button.btn:active {
     height: 50px;
     width: 300px;
     border: 1px solid #000;
+    margin: 20px auto;
     background: #CDEDF6;
     position: relative;
     padding: 10px;
