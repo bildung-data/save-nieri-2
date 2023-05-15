@@ -21,6 +21,7 @@ $(document).ready(function() {
         $('.catJumping').css('opacity', 0);
         $('#gameOverContent').fadeOut();
 
+        $('#jumpContainer').fadeIn();
         $('#startButton').off('click', startGame);
         $('#startButton, #instructions').hide();
         $('h2').css('visibility', 'hidden');
@@ -129,6 +130,7 @@ $(document).ready(function() {
     function endGame() {
         setTimeout(function() {
             $('#gameOverContent').fadeIn();
+            $('#jumpContainer').fadeOut();
             if (score > highscore) {
                 highscore = score;
                 $('#highscore #value').text(score);
