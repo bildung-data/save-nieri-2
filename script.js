@@ -24,7 +24,7 @@ $(document).ready(function() {
           localStorage.setItem('playerName', name);
 
           // Hide the pop-up
-          $('#popupContainer').hide();
+          $('#popupContainer').fadeOut();
 
         // Set to a value other than null
             popupShownBefore = true; 
