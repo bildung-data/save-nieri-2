@@ -6,6 +6,7 @@ $(document).ready(function() {
     var catIsOnHisWayDown = false;
     var score = 0;
     var highscore = 0;
+    var popupShownBefore = null;
 
     // start (or restart) the game
     function startGame() {
