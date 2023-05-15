@@ -7,26 +7,8 @@ $(document).ready(function() {
     var score = 0;
     var highscore = 0;
     var popupShownBefore = null;
-
-    // start (or restart) the game
-    function startGame() {
-        canJump = false;
-        gameIsInProgress = false;
-        catJumpedOverCurrentBlock = false;
-        catIsOnHisWayDown = false;
-        score = 0;
-        $('#score #value').text(score);
-        $('.brickContainer').html('<div class="brick original landed"></div>');
-        $('.catContainer').removeClass('dead left right').css('top', 0);
-        $('.catStanding').css('opacity', 1);
-        $('.catJumping').css('opacity', 0);
-        $('#gameOverContent').fadeOut();
-
-        $('#jumpButton').fadeIn();
-        $('#startButton').off('click', startGame);
-        $('#startButton, #instructions').hide();
-        
-          // Check if the pop-up has been shown before
+    
+     // Check if the pop-up has been shown before
         var popupShownBefore = localStorage.getItem('popupShownBefore');
 
         // If the pop-up hasn't been shown before, display it
@@ -46,9 +28,25 @@ $(document).ready(function() {
 
         // Set to a value other than null
             popupShownBefore = true; 
-
           });
 
+    // start (or restart) the game
+    function startGame() {
+        canJump = false;
+        gameIsInProgress = false;
+        catJumpedOverCurrentBlock = false;
+        catIsOnHisWayDown = false;
+        score = 0;
+        $('#score #value').text(score);
+        $('.brickContainer').html('<div class="brick original landed"></div>');
+        $('.catContainer').removeClass('dead left right').css('top', 0);
+        $('.catStanding').css('opacity', 1);
+        $('.catJumping').css('opacity', 0);
+        $('#gameOverContent').fadeOut();
+
+        $('#jumpButton').fadeIn();
+        $('#startButton').off('click', startGame);
+        $('#startButton, #instructions').hide();
 
         $('h2').css('visibility', 'hidden');
         $('.catContainer').removeClass('homeScreen');
