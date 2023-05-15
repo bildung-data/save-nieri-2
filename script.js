@@ -24,6 +24,31 @@ $(document).ready(function() {
         $('#jumpButton').fadeIn();
         $('#startButton').off('click', startGame);
         $('#startButton, #instructions').hide();
+        
+          // Check if the pop-up has been shown before
+        var popupShownBefore = localStorage.getItem('popupShownBefore');
+
+        // If the pop-up hasn't been shown before, display it
+          if (!popupShownBefore) {
+            $('#popupContainer').fadeIn();
+            return;
+          }
+
+        $(document).on('click', '#startButton2', function() {
+          var name = $('#nameInput').val();
+
+          // Store the entered name in cookies or local storage
+          localStorage.setItem('playerName', name);
+
+          // Hide the pop-up
+          $('#popupContainer').fadeOut();
+
+        // Set to a value other than null
+            popupShownBefore = true; 
+
+          });
+
+
         $('h2').css('visibility', 'hidden');
         $('.catContainer').removeClass('homeScreen');
         $('.catContainerOuter, .brickContainer').animate({
