@@ -61,6 +61,7 @@ button.btn:active {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 #gameContainer #score {
@@ -88,7 +89,6 @@ button.btn:active {
     position: relative;
     margin: auto;
     display: block;
-    width: 50%;
     cursor: pointer;
 }
 
