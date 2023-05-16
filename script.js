@@ -14,11 +14,14 @@ $(document).ready(function() {
         // If the pop-up hasn't been shown before, display it
           if (!popupShownBefore) {
             $('#popupContainer').fadeIn();
+            console.log("popupContainer Fade In xq no se habia mostrado");
             return;
+            
           }
 
         function hidepopupContainer() {
-            
+          console.log("hidepopupContainer function está corriendo");
+
          // var name = $('#nameInput').val();
 
           // Store the entered name in cookies or local storage
