@@ -69,8 +69,7 @@ $(document).ready(function() {
     }
 
     // click handler to start the game
-    //$('#startButton').on('click', startGame);
-    document.getElementById("startButton").addEventListener("click", startGame);
+    $('#startButton').on('click', startGame);
 
     // jump (or start game if first key press)
     function handleKeyPress() {
@@ -99,8 +98,7 @@ $(document).ready(function() {
     
     
     // add an event listener to the jump button to handle the jump action - Guro!
-    //$('#jumpButton').on('click', handleKeyPress);
-    document.getElementById("jumpButton").addEventListener("click", handleKeyPress);
+    $('#jumpButton').on('click', handleKeyPress);
 
 
 
@@ -174,9 +172,7 @@ $(document).ready(function() {
     }
 
     // click handler to restart the game
-    //$('#restartButton').on('click', startGame);
-    document.getElementById("restartButton").addEventListener("click", startGame);
-
+    $('#restartButton').on('click', startGame);
 
     // main loop
     function mainLoop() {           
