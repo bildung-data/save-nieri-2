@@ -92,6 +92,7 @@ button.btn:active {
     cursor: pointer;
 }
 
+/*
 #popupContainer {
   display: none;
   flex-direction: column;
@@ -116,6 +117,7 @@ button.btn:active {
   width: 200px;
   margin-bottom: 10px;
 }
+*/
 
 .brickContainer {
     position: relative;
