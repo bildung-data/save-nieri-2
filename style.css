@@ -97,7 +97,8 @@ button.btn:active {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: absolute;
+  position: relative;
+  margin: 10px;
   top: 0;
   left: 0;
   width: 100%;
