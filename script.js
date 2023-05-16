@@ -19,11 +19,10 @@ $(document).ready(function() {
 
         function hidepopupContainer() {
             
-        //$(document).on('click', '#startButton2', function() {
-          var name = $('#nameInput').val();
+         // var name = $('#nameInput').val();
 
           // Store the entered name in cookies or local storage
-          localStorage.setItem('playerName', name);
+          //localStorage.setItem('playerName', name);
 
           // Hide the pop-up
           $('#popupContainer').fadeOut();
