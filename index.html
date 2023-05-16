@@ -18,7 +18,7 @@
               <h3>Welcome to the Game!</h3>
               <p>Ingresá tu nombre:</p>
               <input type="text" id="nameInput" />
-              <button id="enterNameButton" class="btn" type="button">Start Game</button>
+              <button id="enterNameButton" class="btn" type="button" onclick="hidepopupContainer()">Start Game</button>
             </div>
             <div id="gameContainer">
                 <div id="score">Score: <span id="value">0</span></div>
@@ -48,5 +48,22 @@
                 <button id="jumpButton" class="btn" type="button">Jump!</button>
            </div>
         </main>
+
+        <script>
+            function hidepopupContainer() {
+                console.log("hidepopupContainer function is running");
+
+                // var name = $('#nameInput').val();
+
+                // Store the entered name in cookies or local storage
+                //localStorage.setItem('playerName', name);
+
+                // Hide the pop-up
+                $('#popupContainer').fadeOut();
+
+                // Set to a value other than null
+                popupShownBefore = true; 
+            }
+        </script>
     </body>
 </html>
