@@ -6,6 +6,8 @@ $(document).ready(function() {
     var catIsOnHisWayDown = false;
     var score = 0;
     var highscore = 0;
+    var popupShownBefore = null;
+
 
     // start (or restart) the game
     function startGame() {
@@ -69,6 +71,28 @@ $(document).ready(function() {
     // add an event listener to the jump button to handle the jump action - Guro!
     $('#jumpButton').on('click', handleKeyPress);
 
+    // Check if the pop-up has been shown before
+    var popupShownBefore = localStorage.getItem('popupShownBefore');
+
+    // If the pop-up hasn't been shown before, display it
+    if (!popupShownBefore) {
+        $('#popupContainer').fadeIn();
+        console.log("popupContainer Fade In xq no se habia mostrado");
+        return;
+    }
+
+    function hidepopupContainer() {
+    console.log("hidepopupContainer function está corriendo");
+    // var name = $('#nameInput').val();
+    // Store the entered name in cookies or local storage
+    //localStorage.setItem('playerName', name);
+    // Hide the pop-up
+    $('#popupContainer').fadeOut();
+    // Set to a value other than null
+    popupShownBefore = true; 
+    }
+
+     $('#enterNameButton').on('click', hidepopupContainer);
 
     // send a new brick from the left or right of the screen and move the stack down
     function sendBrick() {
