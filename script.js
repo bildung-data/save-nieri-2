@@ -17,8 +17,6 @@ $(document).ready(function() {
             return;
           }
 
-        $('#startButton2').on('click', hidepopupContainer);
-
         function hidepopupContainer() {
             
         //$(document).on('click', '#startButton2', function() {
@@ -33,6 +31,8 @@ $(document).ready(function() {
         // Set to a value other than null
             popupShownBefore = true; 
           }
+
+     $('#startButton2').on('click', hidepopupContainer);
 
     // start (or restart) the game
     function startGame() {
