@@ -69,7 +69,8 @@ $(document).ready(function() {
     }
 
     // click handler to start the game
-    $('#startButton').on('click', startGame);
+    //$('#startButton').on('click', startGame);
+    document.getElementById("startButton").addEventListener("click", startGame);
 
     // jump (or start game if first key press)
     function handleKeyPress() {
@@ -96,8 +97,11 @@ $(document).ready(function() {
     $(document).on('keydown', handleKeyPress);
     
     
+    
     // add an event listener to the jump button to handle the jump action - Guro!
-    $('#jumpButton').on('click', handleKeyPress);
+    //$('#jumpButton').on('click', handleKeyPress);
+    document.getElementById("jumpButton").addEventListener("click", handleKeyPress);
+
 
 
     // send a new brick from the left or right of the screen and move the stack down
@@ -170,7 +174,9 @@ $(document).ready(function() {
     }
 
     // click handler to restart the game
-    $('#restartButton').on('click', startGame);
+    //$('#restartButton').on('click', startGame);
+    document.getElementById("restartButton").addEventListener("click", startGame);
+
 
     // main loop
     function mainLoop() {           
