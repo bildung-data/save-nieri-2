@@ -32,7 +32,7 @@ $(document).ready(function() {
 
         // Set to a value other than null
             popupShownBefore = true; 
-          };
+          }
 
     // start (or restart) the game
     function startGame() {
