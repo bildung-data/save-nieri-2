@@ -34,7 +34,7 @@ $(document).ready(function() {
             popupShownBefore = true; 
           }
 
-     $('#startButton2').on('click', hidepopupContainer);
+     $('#enterNameButton').on('click', hidepopupContainer);
 
     // start (or restart) the game
     function startGame() {
