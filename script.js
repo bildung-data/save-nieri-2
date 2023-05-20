@@ -22,7 +22,6 @@ $(document).ready(function() {
         $('.catStanding').css('opacity', 1);
         $('.catJumping').css('opacity', 0);
         $('#gameOverContent').fadeOut();
-
         $('#jumpButton').fadeIn();
         $('#startButton').off('click', startGame);
         $('#startButton, #instructions').hide();
@@ -66,23 +65,12 @@ $(document).ready(function() {
 
     // keypress handler to jump
     $(document).on('keydown', handleKeyPress);
-    
-    
+  
     // add an event listener to the jump button to handle the jump action - Guro!
     $('#jumpButton').on('click', handleKeyPress);
 
-    // Check if the pop-up has been shown before
-    var popupShownBefore = localStorage.getItem('popupShownBefore');
-
-    // If the pop-up hasn't been shown before, display it
-    if (!popupShownBefore) {
-        $('#popupContainer').fadeIn();
-        console.log("popupContainer Fade In xq no se habia mostrado");
-        return;
-    }
-
     function hidepopupContainer() {
-    console.log("hidepopupContainer function está corriendo");
+    //console.log("hidepopupContainer function está corriendo");
     var name = $('#nameInput').val();
     // Store the entered name in cookies or local storage
     localStorage.setItem('playerName', name);
@@ -93,7 +81,11 @@ $(document).ready(function() {
     }
 
      $('#enterNameButton').on('click', hidepopupContainer);
-
+  
+  
+  
+  
+  
     // send a new brick from the left or right of the screen and move the stack down
     function sendBrick() {
         // move the stack down
@@ -133,7 +125,7 @@ $(document).ready(function() {
             $('.brick').eq(0).addClass('hit');
 
             var brickWasComingFromLeft = brickLeftPosition <= 90 && brickLeftPosition >= 75;
-            brickWasComingFromLeft ? $catContainer.addClass('dead right') : $catContainer.addClass('dead left');
+            brickWasComingFromLeft ? $catContainer.addClass('dead right') : $catContainer.addClass('dead left')
 
         // cat is on top of the brick
         } else if (parseInt($catContainerOuter.css('top')) === 60 && !catJumpedOverCurrentBlock && $bricks.length > 1 && brickLeftPosition >= 75 && brickLeftPosition <= 205 && parseInt($catContainer.css('top')) <= -20 && parseInt($catContainer.css('top')) >= -30 && catIsOnHisWayDown) {
@@ -150,7 +142,7 @@ $(document).ready(function() {
             incrementScoreAndSendNewBrick();
         }
     }
-
+  
     // end the game
     function endGame() {
         setTimeout(function() {
