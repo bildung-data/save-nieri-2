@@ -125,7 +125,7 @@ $(document).ready(function() {
             $('.brick').eq(0).addClass('hit');
 
             var brickWasComingFromLeft = brickLeftPosition <= 90 && brickLeftPosition >= 75;
-            brickWasComingFromLeft ? $catContainer.addClass('dead right') : $catContainer.addClass('dead left');
+            brickWasComingFromLeft ? $catContainer.addClass('dead right') : $catContainer.addClass('dead left')
 
         // cat is on top of the brick
         } else if (parseInt($catContainerOuter.css('top')) === 60 && !catJumpedOverCurrentBlock && $bricks.length > 1 && brickLeftPosition >= 75 && brickLeftPosition <= 205 && parseInt($catContainer.css('top')) <= -20 && parseInt($catContainer.css('top')) >= -30 && catIsOnHisWayDown) {
