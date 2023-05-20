@@ -8,7 +8,6 @@ $(document).ready(function() {
     var highscore = 0;
     var popupShownBefore = null;
 
-
     // start (or restart) the game
     function startGame() {
         canJump = false;
@@ -104,7 +103,8 @@ $(document).ready(function() {
         score++;
         $('#score #value').text(score);
         catJumpedOverCurrentBlock = false;
-        sendBrick();
+        sendBrick
+        
     }
 
     // check if you've been hit by a brick
@@ -125,7 +125,7 @@ $(document).ready(function() {
             $('.brick').eq(0).addClass('hit');
 
             var brickWasComingFromLeft = brickLeftPosition <= 90 && brickLeftPosition >= 75;
-            brickWasComingFromLeft ? $catContainer.addClass('dead right') : $catContainer.addClass('dead left')
+            brickWasComingFromLeft ? $catContainer.addClass('dead right') : $catContainer.addClass('dead left');
 
         // cat is on top of the brick
         } else if (parseInt($catContainerOuter.css('top')) === 60 && !catJumpedOverCurrentBlock && $bricks.length > 1 && brickLeftPosition >= 75 && brickLeftPosition <= 205 && parseInt($catContainer.css('top')) <= -20 && parseInt($catContainer.css('top')) >= -30 && catIsOnHisWayDown) {
@@ -143,18 +143,36 @@ $(document).ready(function() {
         }
     }
   
+  
+    // Function to handle the share button click event
+    function shareOnWhatsApp() {
+        var gameURL = 'https://bildung-data.github.io/save-nieri/';
+        var whatsappURL = 'https://api.whatsapp.com/send?text=' + encodeURIComponent(gameURL);
+        window.open(whatsappURL);
+    }
+  
+  
     // end the game
     function endGame() {
         setTimeout(function() {
             $('#gameOverContent').fadeIn();
+             //New!
             if (score > highscore) {
                 highscore = score;
                 $('#highscore #value').text(score);
+                $('#mainContent h3').text('Wow, nuevo highscore: ' + highscore + '!');
+                $('#mainContent #shareWhatsapp').fadeIn();
+            } else {
+            $('#mainContent h3').text('Alpiste, perdiste!!');
+            $('#shareWhatsapp').hide();
             }
             $(document).on('keydown', handleKeyPress);
         }, 1500);
     }
-
+  
+    // Add click event listener to the shareButton
+    $('#shareWhatsapp').on('click', shareOnWhatsApp);
+  
     // click handler to restart the game
     $('#restartButton').on('click', startGame);
 
