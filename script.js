@@ -103,7 +103,7 @@ $(document).ready(function() {
         score++;
         $('#score #value').text(score);
         catJumpedOverCurrentBlock = false;
-        sendBrick;
+        sendBrick();
         
     }
 
