@@ -38,6 +38,27 @@ button.btn:active {
     outline: none;
 }
 
+button.btn2 {
+    border-radius: 6px;
+    border: none;
+    background: #25D366;
+    color: #FFF;
+    padding: 10px 20px;
+    font-size: 14px;
+}
+
+button.btn2:hover,
+button.btn2:focus {
+    background: #128C7E;
+    outline: none;
+}
+
+button.btn2:active {
+    background: #128C7E;
+    outline: none;
+}
+
+
 #gameContainer {
     height: 400px;
     width: 300px;
