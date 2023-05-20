@@ -12,24 +12,22 @@
         <header id="header">
             <h1>Saving Private Ñieri</h1>
         </header>
-
         <main>
             <div id="popupContainer">
               <h3>Welcome to the Game!</h3>
               <p>Ingresá tu nombre:</p>
               <input type="text" id="nameInput" />
               <button id="enterNameButton" class="btn" type="button" >Start Game</button>
-                <!--onclick="hidepopupContainer()" - estaba adentro del anterior -->
-            </div>
+            </div>         
             <div id="gameContainer">
                 <div id="score">Score: <span id="value">0</span></div>
                 <div id="highscore">High score: <span id="value">0</span></div>
                 <div id="mainContent">
-                    <h2>salvalo por favor</h2>
+                    <h2>Save Nieri</h2>
                     <div id="gameOverContent">
-                        <h3>Game Over!</h3>
+                        <h3>Game Over</h3>
                         <button id="restartButton" class="btn" type="button">Play again</button>
-                        <p id="instructionsRestart"></p>
+                        <!--<p id="instructionsRestart">(or press any key)</p>-->
                     </div>
                     <div class="catContainerOuter">
                         <div class="catContainer homeScreen">
@@ -41,33 +39,13 @@
                     <div class="brickContainer">
                         <div class="brick original landed"></div>
                     </div>
-                    <p id="instructions"></p>
+                    <!--<p id="instructions">Press any key to Jump</p>-->
                 </div>
                 <button id="startButton" class="btn" type="button">New game</button>
             </div>
-           <div id="jumpContainer">
+            <div id="jumpContainer">
                 <button id="jumpButton" class="btn" type="button">Jump!</button>
-           </div>
+            </div>
         </main>
-<!--
-        <script>
-            function hidepopupContainer() {
-
-                var name = $('#nameInput').val();
-
-                // Store the entered name in cookies or local storage
-                localStorage.setItem('playerName', name);
-
-                // Hide the pop-up
-                $('#popupContainer').fadeOut();
-
-                // Set to a value other than null
-                popupShownBefore = true; 
-                
-                console.log("hidepopupContainer function is running - name is:" + name);
-
-            }
-        </script>
--->
     </body>
 </html>
