@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
     // global game variables
     var canJump = false;
@@ -7,6 +8,9 @@ $(document).ready(function() {
     var score = 0;
     var highscore = 0;
     var popupShownBefore = null;
+
+    //initialize Mixpanel
+    mixpanel.init('7fb9a4b04570113d479ec0c7fea0b8e3', {debug: true});
 
     // start (or restart) the game
     function startGame() {
@@ -24,6 +28,10 @@ $(document).ready(function() {
         $('#jumpButton').fadeIn();
         $('#startButton').off('click', startGame);
         $('#startButton, #instructions').hide();
+         
+        //Mixpanel Event Tracked
+        mixpanel.track("Game Started");
+
         $('h2').css('visibility', 'hidden');
         $('.catContainer').removeClass('homeScreen');
         $('.catContainerOuter, .brickContainer').animate({
@@ -77,6 +85,12 @@ $(document).ready(function() {
     $('#popupContainer').fadeOut();
     // Set to a value other than null
     popupShownBefore = true; 
+    
+    //Mixpanel Identify
+    mixpanel.identify(name);
+    //Mixpanel Event Tracked
+    mixpanel.track("Name Entered");
+
     }
 
      $('#enterNameButton').on('click', hidepopupContainer);
@@ -162,9 +176,20 @@ $(document).ready(function() {
                 $('#highscore #value').text(score);
                 $('#mainContent h3').text('Wow, nuevo highscore: ' + highscore + '!');
                 $('#mainContent #shareWhatsapp').fadeIn();
+                
+                //Event Tracked Mixpanel
+                mixpanel.track('Game Played', {
+                'Score': highscore,
+                'Highscore': true
+                });
             } else {
-            $('#mainContent h3').text('Alpiste, perdiste!!');
+            $('#mainContent h3').text('Do it for '+'\u{1F63F}'+'¡probá de nuevo!');
             $('#shareWhatsapp').hide();
+                //Event Tracked Mixpanel
+                mixpanel.track('Game Played', {
+                'Score': score,
+                'Highscore': false
+                });
             }
             $(document).on('keydown', handleKeyPress);
         }, 1500);
