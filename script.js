@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
     // global game variables
     var canJump = false;
@@ -27,10 +26,8 @@ $(document).ready(function() {
         $('#gameOverContent').fadeOut();
         $('#jumpButton').fadeIn();
         $('#startButton').off('click', startGame);
-        $('#startButton, #instructions').hide();
-         
-        //Mixpanel Event Tracked
-        mixpanel.track("Game Started");
+        $('#startButton, #instructions').hide();       
+
 
         $('h2').css('visibility', 'hidden');
         $('.catContainer').removeClass('homeScreen');
@@ -46,8 +43,15 @@ $(document).ready(function() {
         });
     }
 
+    function startGameMixpanel() {
+    //Mixpanel Event Tracked
+    mixpanel.track("Game Started");
+    }
+  
     // click handler to start the game
     $('#startButton').on('click', startGame);
+    $('#startButton').on('click', startGameMixpanel);
+
 
     // jump (or start game if first key press)
     function handleKeyPress() {
@@ -76,7 +80,8 @@ $(document).ready(function() {
     // add an event listener to the jump button to handle the jump action - Guro!
     $('#jumpButton').on('click', handleKeyPress);
 
-    function hidepopupContainer() {
+    function hidepopupContainer() 
+  {
     //console.log("hidepopupContainer function está corriendo");
     var name = $('#nameInput').val();
     // Store the entered name in cookies or local storage
@@ -90,8 +95,8 @@ $(document).ready(function() {
     mixpanel.identify(name);
     //Mixpanel Event Tracked
     mixpanel.track("Name Entered");
-
-    }
+    mixpanel.people.set({ $name: name });
+  }
 
      $('#enterNameButton').on('click', hidepopupContainer);
   
@@ -180,7 +185,7 @@ $(document).ready(function() {
                 //Event Tracked Mixpanel
                 mixpanel.track('Game Played', {
                 'Score': highscore,
-                'Highscore': true
+                'New Highscore': true
                 });
             } else {
             $('#mainContent h3').text('Do it for '+'\u{1F63F}'+'¡probá de nuevo!');
@@ -188,7 +193,7 @@ $(document).ready(function() {
                 //Event Tracked Mixpanel
                 mixpanel.track('Game Played', {
                 'Score': score,
-                'Highscore': false
+                'New Highscore': false
                 });
             }
             $(document).on('keydown', handleKeyPress);
@@ -200,6 +205,7 @@ $(document).ready(function() {
   
     // click handler to restart the game
     $('#restartButton').on('click', startGame);
+    $('#restartButton').on('click', startGameMixpanel);
 
     // main loop
     function mainLoop() {           
