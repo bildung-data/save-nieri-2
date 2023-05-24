@@ -62,7 +62,8 @@ button.btn2:active {
     position: absolute;
     top: 10px;
     left: 10px;
-    width: 10%; /* Adjust the width as needed */
+    width: 25%; /* Adjust the width as needed */
+    margin 10px auto;
     height: auto;
     z-index: 999;
 }
