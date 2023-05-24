@@ -58,6 +58,14 @@ button.btn2:active {
     outline: none;
 }
 
+#bildung-logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 20px; /* Adjust the width as needed */
+    height: auto;
+    z-index: 999;
+}
 
 #gameContainer {
     height: 400px;
@@ -114,6 +122,13 @@ button.btn2:active {
     width: 50%;
     display: block;
     cursor: pointer;
+}
+
+#externalLinks {
+    margin: 0;
+  left: 25%;
+  position: absolute;
+  cursor: pointer;
 }
 
 #popupContainer {
