@@ -10,6 +10,10 @@ $(document).ready(function() {
 
     //initialize Mixpanel
     mixpanel.init('7fb9a4b04570113d479ec0c7fea0b8e3', {debug: true});
+                                                       
+    //initialize Amplitude -- dudas si es entre comillas o no
+    amplitude.init('a22137bbc4fc51c2500903c8b35d2a9c');
+                                                    
 
     // start (or restart) the game
     function startGame() {
@@ -46,7 +50,12 @@ $(document).ready(function() {
     function startGameMixpanel() {
     //Mixpanel Event Tracked
     mixpanel.track("Game Started");
+
+    // Amplitude Event Tracked
+
+    amplitude.track('Game Started');
     }
+  
   
     // click handler to start the game
     $('#startButton').on('click', startGame);
@@ -91,11 +100,22 @@ $(document).ready(function() {
     // Set to a value other than null
     popupShownBefore = true; 
     
-    //Mixpanel Identify
+    //Mixpanel Identify User
     mixpanel.identify(name);
     //Mixpanel Event Tracked
     mixpanel.track("Name Entered");
     mixpanel.people.set({ $name: name });
+    
+    
+    // Amplitude Identify User
+    const identifyEvent = new amplitude.Identify();
+    identifyEvent.set('name',name);
+    amplitude.setUserId(name);
+    amplitude.identify(identifyEvent);
+    
+    // Amplitude Track Name Entered
+    amplitude.track('Name Entered');
+    
   }
 
      $('#enterNameButton').on('click', hidepopupContainer);
@@ -170,6 +190,19 @@ $(document).ready(function() {
         window.open(whatsappURL);
     }
   
+    // Track Mixpanel & Amplitude link click
+    $("#mixpanelLink").on("click", function() {
+      mixpanel.track("Analytics Link Clicked");
+      amplitude.track("Analytics Link Clicked");
+    });
+
+    // Track Mixpanel & Amplitude blog link click
+    $("#blogLink").on("click", function() {
+    mixpanel.track("Blog Link Clicked");
+    amplitude.track("Blog Link Clicked");
+
+    });
+  
   
     // end the game
     function endGame() {
@@ -187,14 +220,31 @@ $(document).ready(function() {
                 'Score': highscore,
                 'New Highscore': true
                 });
+
+                //Event Tracked Amplitude
+                amplitude.track('Game Played', {
+                'Score': highscore,
+                'New Highscore': true
+                });
+
+
+
             } else {
             $('#mainContent h3').text('Do it for '+'\u{1F63F}'+'¡probá de nuevo!');
             $('#shareWhatsapp').hide();
+
                 //Event Tracked Mixpanel
                 mixpanel.track('Game Played', {
                 'Score': score,
                 'New Highscore': false
                 });
+
+                //Event Tracked Amplitude
+                amplitude.track('Game Played', {
+                'Score': score,
+                'New Highscore': false
+                });
+
             }
             $(document).on('keydown', handleKeyPress);
         }, 1500);
