@@ -63,7 +63,7 @@ button.btn2:active {
     top: 10px;
     left: 10px;
     width: 25%; /* Adjust the width as needed */
-    margin-botoom: 10px;
+    margin-botom: 10px;
     height: auto;
     z-index: 999;
 }
@@ -125,10 +125,12 @@ button.btn2:active {
     cursor: pointer;
 }
 
-#externalLinks {
+#externalAnalyticsLink, #externalBlogLink {
     margin: 0;
   left: 25%;
-  position: absolute;
+  top-margin:10px;
+  position: relative;
+  align-text: center;
   cursor: pointer;
 }
 
