@@ -7,7 +7,7 @@ $(document).ready(function() {
     var score = 0;
     var highscore = 0;
     var popupShownBefore = null;
-    var experimentVariant = "fast";
+    var experimentVariant = "slow";
 
     //initialize Mixpanel
     mixpanel.init('7fb9a4b04570113d479ec0c7fea0b8e3', {debug: true});
@@ -144,8 +144,8 @@ $(document).ready(function() {
 
         // create a new brick
         var startingSide = Math.random() > 0.5 ? '-' : '';
-      var speed = Math.max(1000, Math.floor(Math.random() * 2000) + 2000 - (score * 20));
- //       var speed = Math.max(4000, Math.floor(Math.random() * 8000) + 2000 - (score * 20));
+ //     var speed = Math.max(1000, Math.floor(Math.random() * 2000) + 2000 - (score * 20));
+        var speed = Math.max(4000, Math.floor(Math.random() * 8000) + 2000 - (score * 20));
         var additionalColorClass = (score + 1) % 10 === 0 ? 'ten' : (score + 1) % 5 === 0 ? 'five' : '';
         $('.brickContainer').prepend('<div class="brick ' + additionalColorClass + '" style="left: ' + startingSide + '700px;"></div>');
         $('.brick').eq(0).animate({ left: '50%' }, speed);
