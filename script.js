@@ -7,7 +7,6 @@ $(document).ready(function() {
     var score = 0;
     var highscore = 0;
     var popupShownBefore = null;
-    var experimentVariant = "slow";
 
     //initialize Mixpanel
     mixpanel.init('7fb9a4b04570113d479ec0c7fea0b8e3', {debug: true});
@@ -15,7 +14,6 @@ $(document).ready(function() {
     //initialize Amplitude -- dudas si es entre comillas o no
     amplitude.init('a22137bbc4fc51c2500903c8b35d2a9c');
                                                     
-
 
     // start (or restart) the game
     function startGame() {
@@ -51,15 +49,11 @@ $(document).ready(function() {
 
     function startGameMixpanel() {
     //Mixpanel Event Tracked
-    mixpanel.track("Game Started", {
-                'Experiment Variant': experimentVariant
-                });
+    mixpanel.track("Game Started");
 
     // Amplitude Event Tracked
 
-    amplitude.track('Game Started', {
-                'Experiment Variant': experimentVariant
-                });
+    amplitude.track('Game Started');
     }
   
   
@@ -109,14 +103,9 @@ $(document).ready(function() {
     //Mixpanel Identify User
     mixpanel.identify(name);
     //Mixpanel Event Tracked
-    mixpanel.track("Name Entered", {
-                'Experiment Variant': experimentVariant
-                });
+    mixpanel.track("Name Entered");
     mixpanel.people.set({ $name: name });
     
-    //Mixpanel Experiment Started
-    mixpanel.track('$experiment_started', {'Experiment name': 'Velocidad', 'Variant name': experimentVariant})
-     
     
     // Amplitude Identify User
     const identifyEvent = new amplitude.Identify();
@@ -125,9 +114,7 @@ $(document).ready(function() {
     amplitude.identify(identifyEvent);
     
     // Amplitude Track Name Entered
-    amplitude.track('Name Entered', {
-                'Experiment Variant': experimentVariant
-                });
+    amplitude.track('Name Entered');
     
   }
 
@@ -144,8 +131,7 @@ $(document).ready(function() {
 
         // create a new brick
         var startingSide = Math.random() > 0.5 ? '-' : '';
- //     var speed = Math.max(1000, Math.floor(Math.random() * 2000) + 2000 - (score * 20));
-        var speed = Math.max(4000, Math.floor(Math.random() * 8000) + 2000 - (score * 20));
+        var speed = Math.max(1000, Math.floor(Math.random() * 2000) + 2000 - (score * 20));
         var additionalColorClass = (score + 1) % 10 === 0 ? 'ten' : (score + 1) % 5 === 0 ? 'five' : '';
         $('.brickContainer').prepend('<div class="brick ' + additionalColorClass + '" style="left: ' + startingSide + '700px;"></div>');
         $('.brick').eq(0).animate({ left: '50%' }, speed);
@@ -206,22 +192,14 @@ $(document).ready(function() {
   
     // Track Mixpanel & Amplitude link click
     $("#mixpanelLink").on("click", function() {
-      mixpanel.track("Analytics Link Clicked", {
-                'Experiment Variant': experimentVariant
-                });
-      amplitude.track("Analytics Link Clicked", {
-                'Experiment Variant': experimentVariant
-                });
+      mixpanel.track("Analytics Link Clicked");
+      amplitude.track("Analytics Link Clicked");
     });
 
     // Track Mixpanel & Amplitude blog link click
     $("#blogLink").on("click", function() {
-    mixpanel.track("Blog Link Clicked", {
-                'Experiment Variant': experimentVariant
-                });
-    amplitude.track("Blog Link Clicked", {
-                'Experiment Variant': experimentVariant
-                });
+    mixpanel.track("Blog Link Clicked");
+    amplitude.track("Blog Link Clicked");
 
     });
   
@@ -240,15 +218,13 @@ $(document).ready(function() {
                 //Event Tracked Mixpanel
                 mixpanel.track('Game Played', {
                 'Score': highscore,
-                'New Highscore': true,
-                'Experiment Variant': experimentVariant
+                'New Highscore': true
                 });
 
                 //Event Tracked Amplitude
                 amplitude.track('Game Played', {
                 'Score': highscore,
-                'New Highscore': true,
-                'Experiment Variant': experimentVariant
+                'New Highscore': true
                 });
 
 
@@ -260,15 +236,13 @@ $(document).ready(function() {
                 //Event Tracked Mixpanel
                 mixpanel.track('Game Played', {
                 'Score': score,
-                'New Highscore': false,
-                'Experiment Variant': experimentVariant
+                'New Highscore': false
                 });
 
                 //Event Tracked Amplitude
                 amplitude.track('Game Played', {
                 'Score': score,
-                'New Highscore': false,
-                'Experiment Variant': experimentVariant
+                'New Highscore': false
                 });
 
             }
