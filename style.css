@@ -5,8 +5,9 @@
 html, body {
     margin: 0;
     padding: 0;
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: 'Roboto', Helvetica, Arial, sans-serif;
     font-size: 16px;
+    background-color: #f0f0f0;
 }
 
 body {
@@ -16,45 +17,49 @@ body {
 header h1 {
     margin: 0 auto 20px auto;
     text-align: center;
+    font-size: 24px;
+    color: #333;
 }
 
-button.btn {
+button.btn, button.btn2 {
     border-radius: 6px;
     border: none;
-    background: #5EB1CF;
     color: #FFF;
     padding: 10px 20px;
     font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
-button.btn:hover,
-button.btn:focus {
+button.btn {
+    background: #5EB1CF;
+}
+
+button.btn:hover, button.btn:focus {
     background: #4598A6;
+    transform: scale(1.05);
     outline: none;
 }
 
 button.btn:active {
     background: #2B7E8C;
+    transform: scale(1);
     outline: none;
 }
 
 button.btn2 {
-    border-radius: 6px;
-    border: none;
     background: #25D366;
-    color: #FFF;
-    padding: 10px 20px;
-    font-size: 14px;
 }
 
-button.btn2:hover,
-button.btn2:focus {
+button.btn2:hover, button.btn2:focus {
     background: #128C7E;
+    transform: scale(1.05);
     outline: none;
 }
 
 button.btn2:active {
     background: #128C7E;
+    transform: scale(1);
     outline: none;
 }
 
@@ -62,7 +67,7 @@ button.btn2:active {
     position: relative;
     top: 10px;
     left: 10px;
-    width: 25%; /* Adjust the width as needed */
+    width: 25%;
     height: auto;
     z-index: 999;
 }
@@ -70,12 +75,13 @@ button.btn2:active {
 #gameContainer {
     height: 400px;
     width: 300px;
-    border: 1px solid #000;
+    border: 1px solid #ddd;
     margin: 20px auto;
-    background: #CDEDF6;
+    background: #fff;
     position: relative;
-    padding: 10px;
-    overflow: hidden;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
 }
 
 #gameContainer #score {
@@ -91,23 +97,21 @@ button.btn2:active {
 #gameContainer #startButton {
     position: absolute;
     bottom: 20px;
-    margin: auto;
-    display: block;
-    left: 25%;
-    right: 25%;
-    width: 50%;
-    cursor: pointer;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
 }
 
 #jumpContainer {
     height: 60px;
     width: 300px;
-    border: 1px solid #000;
+    border: 1px solid #ddd;
     margin: 10px auto;
-    background: #CDEDF6;
+    background: #fff;
     position: relative;
-    padding: 10px;
-    overflow: hidden;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -116,53 +120,53 @@ button.btn2:active {
 
 #jumpContainer #jumpButton {
     position: absolute;
-    margin: auto;
-    left: 25%;
-    right: 25%;
-    width: 50%;
-    display: block;
-    cursor: pointer;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
 }
 
 #externalAnalyticsLink, #externalBlogLink {
-    margin: 0;
-  left: 25%;
-  top-margin:10px;
-  position: relative;
-  align-text: center;
-  cursor: pointer;
+    margin: 10px 0;
+    position: relative;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    color: #5EB1CF;
+    text-decoration: none;
 }
 
 #popupContainer {
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: fixed; /* Change position to fixed */
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 9999;
-  padding: 50px;
-  box-sizing: border-box;
-  height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    padding: 50px;
 }
 
 #popupContainer h3, #popupContainer p {
-  color: #fff;
+    color: #fff;
 }
 
 #popupContainer input {
-  width: 200px;
+    width: 200px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
 }
 
 #popupContainer #enterNameButton {
-  /* Add new CSS */
-  margin-top: 10px;
+    margin-top: 10px;
 }
 
 .brickContainer {
@@ -210,13 +214,15 @@ button.btn2:active {
 h2 {
     margin: 20px auto;
     text-align: center;
-    font-size: 16px;
+    font-size: 18px;
+    color: #555;
 }
 
 #instructions {
     text-align: center;
     margin: 40px 0 20px 0;
-    font-size: 12px;
+    font-size: 14px;
+    color: #777;
 }
 
 #gameOverContent {
@@ -230,18 +236,18 @@ h2 {
 #gameOverContent h3 {
     margin: 0;
     font-size: 36px;
+    color: #333;
 }
 
 #gameContainer #gameOverContent #restartButton {
     position: relative;
     margin: 20px auto;
-    display: block;
-    width: 50%;
-    cursor: pointer;
+    width: 80%;
 }
 
 #gameContainer #gameOverContent #instructionsRestart {
-    font-size: 12px;
+    font-size: 14px;
+    color: #777;
 }
 
 .catContainerOuter {
